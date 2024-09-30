@@ -1,7 +1,7 @@
 // TASK: import helper functions from utils
 import { putTask, deleteTask } from "./utils/taskFunctions";
 // TASK: import initialData
-
+import { initialData } from "./initialData";
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
