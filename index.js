@@ -221,20 +221,43 @@ function addTask(event) {
     }
 }
 
+function createNewTask(task) {
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  tasks.push(task);
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+  return task;
+}
+
 
 function toggleSidebar(show) {
- 
+  const sidebar = document.getElementById('side-bar-div');
+  const layout = document.getElementById('layout');
+  const showSidebarBtn = document.getElementById('show-side-bar-btn');
+
+  sidebar.style.display = show ? 'flex' : 'none';
+  layout.style.marginLeft = show ? '300px' : '0';
+  showSidebarBtn.style.display = show ? 'none' : 'block';
+
+  localStorage.setItem('showSideBar', show.toString());
 }
 
 function toggleTheme() {
- 
+  document.body.classList.toggle('light-theme');
+  const isLightTheme = document.body.classList.contains('light-theme');
+  localStorage.setItem('light-theme', isLightTheme ? 'enabled' : 'disabled');
+  
+  // Update logo
+  const logo = document.getElementById('logo');
+  logo.src = isLightTheme ? './assets/logo-light.svg' : './assets/logo-dark.svg';
 }
 
 
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  
+  const titleInput = document.getElementById('edit-task-title-input');
+  const descInput = document.getElementById('edit-task-desc-input');
+  const statusSelect = document.getElementById('edit-select-status');
 
   // Get button elements from the task modal
 
