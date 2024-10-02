@@ -199,6 +199,10 @@ function toggleModal(show, modal = elements.modalWindow) {
 function addTask(event) {
   event.preventDefault(); 
 
+  const titleInput = document.getElementById('title-input');
+  const descInput = document.getElementById('desc-input');
+  const statusSelect = document.getElementById('select-status');
+
   //Assign user input to the task object
     const task = {
       id: Date.now(),
