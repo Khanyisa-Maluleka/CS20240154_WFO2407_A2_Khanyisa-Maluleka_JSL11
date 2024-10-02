@@ -16,29 +16,18 @@ function initializeData() {
     console.log('Data already exists in localStorage');
   }
 }
-/*const elements = {
-  headerBoardName: document.getElementById('header-board-name'),
-  modalWindow: document.getElementById('new-task-modal-window'),
-  editTaskModal: document.querySelector('.edit-task-modal-window'),
-  createNewTaskBtn: document.getElementById('add-new-task-btn'),
-  hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
-  showSideBarBtn: document.getElementById('show-side-bar-btn'),
-  themeSwitch: document.getElementById('switch'),
-  columnDivs: document.querySelectorAll('.column-div'),
-  filterDiv: document.getElementById('filterDiv')
-}
-*/
+
 // TASK: Get elements from the DOM
 const elements = {
-  switchTheme: document.getElementById('switch'),//30
-  hideSideBarBtn: document.getElementById('hide-side-bar-btn'),//36
-  showSideBarBtn: document.getElementById('show-side-bar-btn'),//40
-  headerBoardName: document.getElementById('header-board-name'),//49
-  addNewTaskBtn: document.getElementById('add-new-task-btn'),//54
-  columnDivs: document.querySelectorAll('.column-div'),//66,75,84
-  modalWindow: document.getElementById('new-task-modal-window'),//97
-  editTaskModal: document.querySelector('edit-task-modal-window'), //122
-  filterDiv: document.getElementById('filterDiv')//148
+  switchTheme: document.getElementById('switch'),//themeSwitch
+  hideSideBarBtn: document.getElementById('hide-side-bar-btn'),
+  showSideBarBtn: document.getElementById('show-side-bar-btn'),
+  headerBoardName: document.getElementById('header-board-name'),
+  addNewTaskBtn: document.getElementById('add-new-task-btn'),//createNewTaskBtn
+  columnDivs: document.querySelectorAll('.column-div'),
+  modalWindow: document.getElementById('new-task-modal-window'),
+  editTaskModal: document.querySelector('edit-task-modal-window'), 
+  filterDiv: document.getElementById('filterDiv')
 }
 
 let activeBoard = ""
@@ -46,7 +35,7 @@ let activeBoard = ""
 // Extracts unique board names from tasks
 // TASK: FIX BUGS
 function fetchAndDisplayBoardsAndTasks() {
-  const tasks = getTasks();
+  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
   const boards = [...new Set(tasks.map(task => task.board).filter(Boolean))];
   displayBoards(boards);
   if (boards.length > 0) {
