@@ -189,7 +189,9 @@ function setupEventListeners() {
 // Toggles tasks modal
 // Task: Fix bugs
 function toggleModal(show, modal = elements.modalWindow) {
+  if(modal) {/////////////////////////////////////////////////////////
   modal.style.display = show ? 'block' : 'none'; 
+  }
 }
 
 /*************************************************************************************************************************************************
@@ -270,9 +272,15 @@ function openEditTaskModal(task) {
   const deleteTaskBtn = document.getElementById('delete-task-btn');
   // Delete task using a helper function and close the task modal
 
+  if (saveChangesBtn) {
   saveChangesBtn.onclick = () => saveTaskChanges(task.id);
-  deleteTaskBtn.onclick = () => deleteTaskAndUpdateUI(task.id);
+  }
 
+  if(deleteTaskBtn) {
+  deleteTaskBtn.onclick = () => deleteTaskAndUpdateUI(task.id);
+  refreshTasksUI()
+  }
+  
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
 
@@ -300,7 +308,7 @@ function saveTaskChanges(taskId) {
   function deleteTaskAndUpdateUI(taskId) {
     deleteTask(taskId);
     toggleModal(false, elements.editTaskModal);
-  refreshTasksUI();
+    refreshTasksUI();
 }
 
 /*************************************************************************************************************************************************/
