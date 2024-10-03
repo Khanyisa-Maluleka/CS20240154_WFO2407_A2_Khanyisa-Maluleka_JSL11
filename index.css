@@ -176,7 +176,7 @@ h4 {
   width: 50px;
   height: 40px;
   z-index: 2;
-  position: absolute;
+  position: fixed;
   bottom: 45px;
   border-radius: 0 20px 20px 0;
   background-color: #219C90;
