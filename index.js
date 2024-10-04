@@ -1,5 +1,6 @@
 // TASK: import helper functions from utils
-import { putTask, deleteTask } from "./utils/taskFunctions.js";
+import { createNewTask, putTask, deleteTask } from "./utils/taskFunctions.js";
+
 // TASK: import initialData
 import { initialData } from "./initialData.js";
 
@@ -223,13 +224,6 @@ function addTask(event) {
       event.target.reset();
       refreshTasksUI();
     }
-}
-
-function createNewTask(task) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-  tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  return task;
 }
 
 
