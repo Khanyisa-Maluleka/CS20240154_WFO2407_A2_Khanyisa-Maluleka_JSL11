@@ -274,6 +274,7 @@ function openEditTaskModal(task) {
 
   if (saveChangesBtn) {
   saveChangesBtn.onclick = () => saveTaskChanges(task.id);
+  refreshTasksUI();
   }
 
   if(deleteTaskBtn) {
@@ -300,7 +301,7 @@ function saveTaskChanges(taskId) {
   };
 
   // Update task using a hlper functoin
-  putTask(updatedTask);
+  putTask(taskId, updatedTask);
   toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
 }
@@ -318,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function init() {
+  initializeData()
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
