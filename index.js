@@ -12,9 +12,16 @@ function initializeData() {
   if (!localStorage.getItem('tasks')) {
     localStorage.setItem('tasks', JSON.stringify(initialData)); 
     localStorage.setItem('showSideBar', 'true')
-  } else {
-    console.log('Data already exists in localStorage');
+  } 
+  if (!localStorage.getItem('activeBoard')) {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const firstBoard = tasks.length > 0 ? tasks[0].board : null;
+    if (firstBoard) {
+      localStorage.setItem('activeBoard', JSON.stringify(firstBoard));
+    }
   }
+
+  
 }
 
 // TASK: Get elements from the DOM
