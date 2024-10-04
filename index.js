@@ -236,7 +236,7 @@ function toggleSidebar(show) {
   const layout = document.getElementById('layout');
   const showSidebarBtn = document.getElementById('show-side-bar-btn');
 
-  sidebar.style.display = show ? 'flex' : 'none';
+  sidebar.style.display = show ? 'flex' : 'none'; 
   layout.style.marginLeft = show ? '300px' : '0';
   layout.style.paddingRight = show ? '300px' : '0';
   showSidebarBtn.style.display = show ? 'none' : 'block';
