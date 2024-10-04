@@ -189,7 +189,7 @@ function setupEventListeners() {
 // Toggles tasks modal
 // Task: Fix bugs
 function toggleModal(show, modal = elements.modalWindow) {
-  if(modal) {/////////////////////////////////////////////////////////
+  if(modal) {
   modal.style.display = show ? 'block' : 'none'; 
   }
 }
@@ -237,7 +237,7 @@ function toggleSidebar(show) {
   const showSidebarBtn = document.getElementById('show-side-bar-btn');
 
   sidebar.style.display = show ? 'flex' : 'none';
-  layout.style.marginLeft = show ? '300px' : '0';
+  layout.style.paddingLeft = show ? '300px' : '0';
   showSidebarBtn.style.display = show ? 'none' : 'block';
 
   localStorage.setItem('showSideBar', show.toString());

@@ -1390,7 +1390,7 @@ input:checked + #label-checkbox-theme:after {
   }
 
   .side-bar {
-    width: 350px;
+    width: 250px;
   }
 
   .container {
